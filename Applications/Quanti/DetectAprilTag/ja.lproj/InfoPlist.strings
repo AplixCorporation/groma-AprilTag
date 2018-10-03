@@ -1,0 +1,2 @@
+CFBundleDisplayName = "groma スキャナ";
+NSCameraUsageDescription = "マーカーをスキャンするためにカメラを使用します。";

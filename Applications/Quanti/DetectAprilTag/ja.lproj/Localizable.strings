@@ -1,0 +1,45 @@
+
+/* モーダル */
+"Description" = "マーカーをダウンロードして書類や在庫の管理をスマートにしよう!";
+
+/* タグ検知画面 */
+"SearchField" = "検索したいIDを指定";
+"ErrorOnlyNumber" = "数字のみ入力が可能です";
+"ErrorMaximum36h10" = "36h10では0から最大2319まで検索が可能です";
+"ErrorMaximum36h11" = "36h11では0から最大586まで検索が可能です";
+"ErrorNotSet" = "検索したいIDを入力してください";
+"Space" = "スペース";
+"AddID" = "IDの追加";
+"Start" = "検索";
+"ErrorAuthorization" = "設定アプリの中の本アプリの設定項目で、カメラへのアクセス権限を許可してください。";
+
+/* アプリの設定画面 (日本語)*/
+
+// URL
+"AplixURL" = "https://www.aplix.co.jp";
+"ContactURL" = "https://www.aplix.co.jp/inquiry/product/";
+"AprilTagURL" = "https://groma.jp/AprilTag";
+"DownloadURL" = "https://groma.jp/AprilTag/download";
+"EULAURL" = "https://www.aplix.co.jp/legal/terms_eula.php";
+
+// 文面
+"Quanti" = "Quanti (groma スキャナ) はgroma AprilTagソリューションの1つです。";
+"Resolution" = "解像度";
+"ResolutionDetail" = "高解像度にすると検知距離は延びますが、アプリの動作が少し重くなります。";
+"AppSettings" = "アプリの設定";
+"TagFamily" = "マーカーの種類";
+"TagFamilyDetail"  = "AprilTag公式サイトが推奨しているマーカーは36h11で、最大で586個までのマーカーをご利用なれます。36h10は、最大で2319個までのマーカーをご利用になれます。";
+"TagPrint" = "マーカーの印刷ページ";
+"Information" = "インフォメーション";
+"WhatIsGroma" = "groma AprilTag ソリューションとは？";
+"FeedbackAndContact" = "フィードバック・お問い合わせ";
+"Version" = "バージョン";
+"Requirements" = "動作環境";
+"RequirementsValue" = "iOS 10.0 以降";
+"Others" = "その他";
+"CompanyName" = "企業情報";
+"CompanyDisplayURL" = "www.aplix.co.jp";
+"CompanyValue" = "株式会社アプリックス";
+"CompanySite" = "Webサイト";
+"CloudAndEmbed" = "クラウド連携・組み込みのご相談";
+"EULA" = "エンドユーザー使用許諾契約";

@@ -1,0 +1,2 @@
+CFBundleDisplayName = "groma Scanner";
+NSCameraUsageDescription = "The app needs to access your camera to scan tags.";
