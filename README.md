@@ -24,16 +24,10 @@ XCode 9.4.1, macOS High Sierra 10.13.5
 $ git clone https://github.com/AplixCorporation/groma-AprilTag.git
 ```
 ### install ViSP framework
-1. [download "ViSP for iOS"](https://visp.inria.fr/download/) (current latest version is 3.1.0)
+1. [download "ViSP for iOS"](https://visp.inria.fr/download/) (current latest version is 3.2.0, please do not use latest version.)
 2. install the framework to Xcode  
 see [Tutorial: How to create a basic iOS application that uses ViSP](http://visp-doc.inria.fr/doxygen/visp-daily/tutorial-getting-started-iOS.html)  
 
-### pod install
-Use [Eureka](https://github.com/xmartlabs/Eureka).  
-do `pod install` under application root folder, like `Application/Quanti/`.
-```
-$ pod install
-```
 
 # Information
 ## Copyright notice and license statement
