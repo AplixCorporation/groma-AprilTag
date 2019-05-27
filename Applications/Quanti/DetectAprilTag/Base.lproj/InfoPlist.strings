@@ -1,2 +1,2 @@
-CFBundleDisplayName = "groma Scanner";
+CFBundleDisplayName = "Quanti";
 NSCameraUsageDescription = "The app needs to access your camera to scan tags.";

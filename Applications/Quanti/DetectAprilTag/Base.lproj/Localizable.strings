@@ -12,6 +12,8 @@
 "AddID" = "add ID";
 "Start" = "search";
 "ErrorAuthorization" = "Please allow access to the camera. Open iOS settings app and go to this app's config.";
+"OrientationLabel" = "Direction";
+"DistanceLabel" = "Distance";
 
 /* アプリの設定画面 (BASE) */
 
@@ -23,19 +25,23 @@
 "EULAURL" = "https://www.aplix.co.jp/en/legal/terms_eula.php";
 
 // 文面
-"Quanti" = "Quanti (groma Scanner) is one of groma AprilTag Solutions.";
+"Quanti" = "Quanti is one of groma AprilTag Solutions.";
+"Usage" = "Manage your stock and document wisely. \nPrint tags on the website and paste them on the stock. You can quickly locate your desired ID from a distance.";
 "Resolution" = "Resolution";
 "ResolutionDetail" = "If you set this to high resolution, you can detect tags from further distance, while this app would be laggy.";
-"AppSettings" = "App Settings";
+"AppSettings" = "APP SETINGS";
 "TagFamily" = "Tag Family";
 "TagFamilyDetail"  = "AprilTag official website recommends 36h11, and you can use up to 586 markers at maximum. Up to 2319 markers can be used with 36h10.";
+"TagSize" = "Tag Size (mm)";
+"DistanceHeader" = "DISTNACE MEASUREMENT SETTINGS";
+"DistanceDetail" ="To correctly display the distance to the tag, enter the width of the black part of the tag.\n\nThere is a possibility that the accuracy may decrease with old devices.";
 "TagPrint" = "Tag Print site";
 "Information" = "Information";
 "WhatIsGroma" = "What is groma AprilTag solution?";
 "FeedbackAndContact" = "Feedback and Contact";
 "Version" = "Version";
 "Requirements" = "Requirements";
-"RequirementsValue" = "iOS 10.0 or later";
+"RequirementsValue" = "iOS 11.0 or later";
 "Others" = "Others";
 "CompanyName" = "Company";
 "CompanyValue" = "Aplix Corporation";

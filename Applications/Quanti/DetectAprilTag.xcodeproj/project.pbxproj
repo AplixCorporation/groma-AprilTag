@@ -129,10 +129,10 @@
 				04ABE86C2112A5110040AE4C /* Assets.xcassets */,
 				04ABE8772112A63C0040AE4C /* AvCapture.swift */,
 				04ABE8652112A5100040AE4C /* AppDelegate.swift */,
-				04D9DA7321130AD200C9B38E /* VispDetector.h */,
-				04D9DA7421130AD200C9B38E /* VispDetector.mm */,
 				048DDA5521253AB6003189B6 /* SplashViewController.swift */,
 				048DDA53212531DA003189B6 /* FirstModalViewController.swift */,
+				04D9DA7321130AD200C9B38E /* VispDetector.h */,
+				04D9DA7421130AD200C9B38E /* VispDetector.mm */,
 				04ABE8672112A5100040AE4C /* ViewController.swift */,
 				043AFE6A2147D9340079B581 /* ViewController+Utility.swift */,
 				04B1BB8B21182D2600C0AD0D /* SettingsViewController.swift */,
@@ -198,6 +198,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 04ABE8592112A50F0040AE4C;
 			productRefGroup = 04ABE8632112A5100040AE4C /* Products */;
@@ -456,7 +457,7 @@
 				);
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = DetectAprilTag/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -488,7 +489,7 @@
 				);
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = DetectAprilTag/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

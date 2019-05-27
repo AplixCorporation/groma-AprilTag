@@ -26,6 +26,7 @@ class SettingsViewController: FormViewController {
     let userDefaults = UserDefaults.standard
     var tagFamily : String!
     var resolutioin: String!
+    var tagSize : Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,31 +42,67 @@ class SettingsViewController: FormViewController {
         
         // 設定画面の作成
         form
-            
-        // 画像ヘッダー
-            +++ Section(footer:"Quanti".local) { section in
-            
-            let header = HeaderFooterView<UIView>(
-                .callback({
+            // 画像ヘッダー
+            +++ Section() { section in
                 
-                    let width = Int(self.view.frame.width)
-                    let height = 100
-                    let rect = CGRect(x: 0, y: 0, width:width , height: height)
-                    let view = UIView(frame:rect)
+                let header = HeaderFooterView<UIView>(
+                    .callback({
+                        
+                        let width = Int(self.view.frame.width)
+                        let height = 100
+                        let rect = CGRect(x: 0, y: 0, width:width , height: height)
+                        let view = UIView(frame:rect)
+                        
+                        let logo = UIImage(named: "Quanti")
+                        let imageView = UIImageView(image:logo)
+                        imageView.frame = rect
+                        imageView.center = CGPoint(x:width/2, y:height/2)
+                        imageView.contentMode = UIViewContentMode.scaleAspectFit
+                        view.addSubview(imageView)
+                        
+                        return view
+                    })
+                )
+                section.header = header
+            }
+            // 画像ヘッダー
+            +++ Section(footer:"Usage".local) { section in
+            
+                let header = HeaderFooterView<UIView>(
+                    .callback({
+                        let width = Int(self.view.frame.width)
+                        let height = 200
+                        let rect = CGRect(x: 0, y: 0, width:width , height: height)
+                        let view = UIView(frame:rect)
 
-                    let logo = UIImage(named: "Quanti")
-                    let imageView = UIImageView(image:logo)
-                    imageView.frame = rect
-                    imageView.center = CGPoint(x:width/2, y:height/2)
-                    imageView.contentMode = UIViewContentMode.scaleAspectFit
-                    view.addSubview(imageView)
-                    
-                    return view
-                })
-            )
-            section.header = header
-        }
-        
+                        let logo = UIImage(named: "usage1-1")
+                        let imageView = UIImageView(image:logo)
+                        imageView.frame = rect
+                        imageView.center = CGPoint(x:width/2, y:height/2)
+                        imageView.contentMode = UIViewContentMode.scaleAspectFit
+                        view.addSubview(imageView)
+                        
+                        return view
+                    })
+                )
+                section.header = header
+            }
+            
+            //
+            +++ Section()
+            <<< PushRow<String>() {
+                // タグプリント画面
+                $0.title = "TagPrint".local
+                $0.selectorTitle = nil
+                $0.options = nil
+                $0.value = nil // 初期値
+                $0.disabled = true
+                $0.onCellSelection() {_,_ in
+                    let url = downloadURL
+                    self.openURLoutofApp(url: url!)
+                }
+            }
+            
         // アプリの設定
         +++ Section(
             header:"AppSettings".local,
@@ -79,7 +116,6 @@ class SettingsViewController: FormViewController {
             $0.title = "Resolution".local
             $0.value = self.resolutioin //initial value
             $0.options = ["High", "Medium"]
-            
             $0.onChange { [unowned self] row in
                 if let value = row.value {
                     self.resolutioin = value
@@ -87,12 +123,10 @@ class SettingsViewController: FormViewController {
                 }
             }
         }
-        // アプリの設定
+        // タグファミリー
         +++ Section(
             footer:"TagFamilyDetail".local
         )
-        
-        // タグファミリー
         <<< PushRow<String>() {
             
             $0.title = "TagFamily".local
@@ -105,9 +139,28 @@ class SettingsViewController: FormViewController {
                 }
             }
         }
+            
+        // 距離表示の設定
+        +++ Section(
+            header:"DistanceHeader".local,
+            footer:"DistanceDetail".local
+        )
+        <<< IntRow() {
+            
+            $0.title = "TagSize".local
+            $0.value = tagSize
+            $0.onChange { [unowned self] row in
+                if let value = row.value {
+                    self.tagSize = value
+                    self.userDefaults.set(self.tagSize, forKey:"TagSize")
+                } else {
+                    row.value = self.tagSize
+                }
+            }
+        }
         
         // 各種情報
-        +++ Section("Information".local)
+        +++ Section(header: "Information".local, footer:"Quanti".local)
         
         <<< PushRow<String>() {
             // groma/AprilTag サイト
@@ -121,20 +174,7 @@ class SettingsViewController: FormViewController {
                 self.openURLInApp(url: url!)
             }
         }
-        
-        <<< PushRow<String>() {
-            // タグプリント画面
-            $0.title = "TagPrint".local
-            $0.selectorTitle = nil
-            $0.options = nil
-            $0.value = nil // 初期値
-            $0.disabled = true
-            $0.onCellSelection() {_,_ in
-                let url = downloadURL
-                self.openURLoutofApp(url: url!)
-            }
-        }
-        
+        +++ Section()
         <<< PushRow<String>() {
             // お問い合わせ
             $0.title = "FeedbackAndContact".local
@@ -147,6 +187,7 @@ class SettingsViewController: FormViewController {
                 self.openURLInApp(url: url!)
             }
         }
+            
         <<< PushRow<String>() {
             // 組み込み希望
             $0.title = "CloudAndEmbed".local
@@ -233,6 +274,7 @@ class SettingsViewController: FormViewController {
         // データの読み込み
         tagFamily = userDefaults.string(forKey: "TagFamily")
         resolutioin = userDefaults.string(forKey: "Resolution")
+        tagSize = userDefaults.integer(forKey: "TagSize")
         
     }
     

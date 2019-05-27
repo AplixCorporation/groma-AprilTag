@@ -20,9 +20,16 @@
 #import <UIKit/UIKit.h>
 #import <CoreImage/CoreImage.h>
 
+typedef NS_OPTIONS(NSUInteger, DisplayMode){
+    DisplayMode_Id          = 1 << 0,
+    DisplayMode_Orientation = 1 << 1,
+    DisplayMode_Distance    = 1 << 2
+};
+
 @interface VispDetector : NSObject
 
-- (UIImage *)detectAprilTag: (UIImage*)image targetIds:(int *)targetIds count:(int)targetCount  family:(NSString *)tagFamilyName;
+- (UIImage *)detectAprilTag: (UIImage*)image targetIds:(int *)targetIds count:(int)targetCount
+    family:(NSString *)tagFamilyName intrinsic:(float *)param tagSize:(int)tagSize display:(DisplayMode)modes;
 
 @end
 

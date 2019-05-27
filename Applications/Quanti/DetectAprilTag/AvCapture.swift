@@ -31,7 +31,7 @@ import UIKit
 import AVFoundation
 
 protocol AVCaptureDelegate {
-    func capture(image: UIImage)
+    func capture(image: UIImage, intrinsic:matrix_float3x3)
 }
 
 class AVCapture:NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
@@ -68,7 +68,16 @@ class AVCapture:NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         videoDataOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as AnyHashable as! String : Int(kCVPixelFormatType_32BGRA)]
         videoDataOutput.alwaysDiscardsLateVideoFrames = true
 
+        // 内部パラメーターの取得
         captureSession.addOutput(videoDataOutput)
+        if let connection = videoDataOutput.connections.first {
+            if connection.isCameraIntrinsicMatrixDeliverySupported {
+                print("Camera Intrinsic Matrix Delivery is supported.")
+                connection.isCameraIntrinsicMatrixDeliveryEnabled = true
+            } else {
+                print("Camera Intrinsic Matrix Delivery is NOT supported.")
+            }
+        }
         
         DispatchQueue.global(qos: .userInitiated).async {
             self.captureSession.startRunning()
@@ -82,8 +91,13 @@ class AVCapture:NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         // DISMISS_COUNTごとに画像処理の実行
         if (counter % DISMISS_COUNT) == 0 {
             
+            var matrix = matrix_float3x3.init()
+            if let camData = CMGetAttachment(sampleBuffer, kCMSampleBufferAttachmentKey_CameraIntrinsicMatrix, nil) as? Data {
+                matrix = camData.withUnsafeBytes { $0.pointee }
+            }
+            
             let image = imageFromSampleBuffer(sampleBuffer: sampleBuffer)
-            delegate?.capture(image: image)
+            delegate?.capture(image: image, intrinsic:matrix)
             
         }
         counter += 1

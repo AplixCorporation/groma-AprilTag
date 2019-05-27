@@ -21,6 +21,16 @@ import AVFoundation
 
 extension ViewController {
     
+    // UIパーツの初期設定
+    func setUIItems(){
+        
+        // Optionスイッチ
+        orientationSwitch.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        orientationSwitchLabel.text = "OrientationLabel".local
+        distanceSwitch.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        distanceSwitchLabel.text = "DistanceLabel".local
+    }
+    
     // キーボードと検索バーをカスタマイズ
     func cutomizeSearchBar (){
         
@@ -65,6 +75,25 @@ extension ViewController {
         captureStatus = "RUN"
     }
     
+    // スイッチ：方向
+    @IBAction func switchOrientationMode(_ sender: UISwitch) {
+        
+        if(sender.isOn){
+            modes.insert(.orientation)
+        }else{
+            modes.remove(.orientation)
+        }
+    }
+    // スイッチ：距離
+    @IBAction func switchDistanceMode(_ sender: UISwitch) {
+        
+        if(sender.isOn){
+            modes.insert(.distance)
+        }else{
+            modes.remove(.distance)
+        }
+    }
+    
     // カメラの権限の確認
     func checkCameraAuth(){
         
@@ -94,13 +123,13 @@ extension ViewController {
         
         userDefaults.register(defaults:[
             "TagFamily" : tagFamily,
-            "Resolution": "Medium"
+            "Resolution": "Medium",
+            "TagSize"   : 18
             ])
         tagFamily = userDefaults.string(forKey: "TagFamily")!
         let lastResolution = userDefaults.string(forKey: "Resolution")!
         avCapture.changeResolution(quality: lastResolution)
+        tagSize = userDefaults.integer(forKey: "TagSize")
     }
-    
-    
     
 }
