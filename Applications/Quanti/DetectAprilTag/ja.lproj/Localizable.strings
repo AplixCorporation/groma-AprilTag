@@ -12,6 +12,8 @@
 "AddID" = "IDの追加";
 "Start" = "検索";
 "ErrorAuthorization" = "設定アプリの中の本アプリの設定項目で、カメラへのアクセス権限を許可してください。";
+"OrientationLabel" = "向き";
+"DistanceLabel" = "距離";
 
 /* アプリの設定画面 (日本語)*/
 
@@ -23,19 +25,23 @@
 "EULAURL" = "https://www.aplix.co.jp/legal/terms_eula.php";
 
 // 文面
-"Quanti" = "Quanti (groma スキャナ) はgroma AprilTagソリューションの1つです。";
+"Quanti" = "Quantiはgroma AprilTagソリューションの1つです。";
+"Usage" = "スマートに書類や在庫を管理しよう。\nマーカーをwebで印刷して在庫に貼り付けることで、探しているIDを遠くからすぐに発見することができます。";
 "Resolution" = "解像度";
 "ResolutionDetail" = "高解像度にすると検知距離は延びますが、アプリの動作が少し重くなります。";
 "AppSettings" = "アプリの設定";
 "TagFamily" = "マーカーの種類";
 "TagFamilyDetail"  = "AprilTag公式サイトが推奨しているマーカーは36h11で、最大で586個までのマーカーをご利用なれます。36h10は、最大で2319個までのマーカーをご利用になれます。";
+"TagSize" = "マーカーのサイズ (mm)";
+"DistanceHeader" = "距離計測の設定";
+"DistanceDetail" = "マーカーまでの距離を正しく表示するには、マーカーの黒色部分の横幅を入力してください。\n\n古い機種でご利用になる場合には、距離計測の精度が落ちる可能性があります。";
 "TagPrint" = "マーカーの印刷ページ";
 "Information" = "インフォメーション";
 "WhatIsGroma" = "groma AprilTag ソリューションとは？";
 "FeedbackAndContact" = "フィードバック・お問い合わせ";
 "Version" = "バージョン";
 "Requirements" = "動作環境";
-"RequirementsValue" = "iOS 10.0 以降";
+"RequirementsValue" = "iOS 11.0 以降";
 "Others" = "その他";
 "CompanyName" = "企業情報";
 "CompanyDisplayURL" = "www.aplix.co.jp";

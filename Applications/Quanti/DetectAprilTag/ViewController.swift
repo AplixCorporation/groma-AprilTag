@@ -17,7 +17,7 @@
 // See https://groma.jp for more information.
 //
 
-import UIKit
+import AVFoundation
 
 class ViewController: UIViewController, AVCaptureDelegate,
     UINavigationControllerDelegate {
@@ -27,6 +27,12 @@ class ViewController: UIViewController, AVCaptureDelegate,
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var errorTextView: UITextView!
     
+    // Optionスイッチ
+    @IBOutlet weak var orientationSwitch: UISwitch!
+    @IBOutlet weak var orientationSwitchLabel: UILabel!
+    @IBOutlet weak var distanceSwitch: UISwitch!
+    @IBOutlet weak var distanceSwitchLabel: UILabel!
+    
     let userDefaults = UserDefaults.standard
     let avCapture = AVCapture()
     let visp = VispDetector()
@@ -35,7 +41,9 @@ class ViewController: UIViewController, AVCaptureDelegate,
     var targetTagIds = [Int32]()
     var tagFamily = "36h11"
     var captureStatus = "RUN"
-    
+    var modes:DisplayMode = .id
+    var tagSize = 18 //mm
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +54,7 @@ class ViewController: UIViewController, AVCaptureDelegate,
         super.viewWillAppear(animated)
 
         // 各種設定の読み込み
+        setUIItems()
         loadUserDefaults()
         cutomizeSearchBar()
         checkCameraAuth()
@@ -54,10 +63,18 @@ class ViewController: UIViewController, AVCaptureDelegate,
         setCaptureStatusRun()
     }
     
-    func capture(image: UIImage) {
+    func capture(image: UIImage, intrinsic:matrix_float3x3) {
+        
+        var params = [
+            intrinsic.columns.0.x,
+            intrinsic.columns.1.y,
+            intrinsic.columns.2.x,
+            intrinsic.columns.2.y
+        ]
         
         // メインのタグ検知処理
-        imageView.image = visp.detectAprilTag(image,targetIds:&targetTagIds, count:Int32(targetTagIds.count), family:tagFamily)
+        imageView.image
+            = visp.detectAprilTag(image,targetIds:&targetTagIds, count:Int32(targetTagIds.count), family:tagFamily, intrinsic:&params, tagSize: Int32(tagSize), display:modes)
     }
     
     // doneボタン押下時の処理（検索IDの取得）
@@ -134,6 +151,4 @@ class ViewController: UIViewController, AVCaptureDelegate,
         super.didReceiveMemoryWarning()
         setCaptureStatusStop()
     }
-    
 }
-
