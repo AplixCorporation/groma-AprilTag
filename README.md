@@ -5,17 +5,24 @@ See <a href='https://groma.jp/AprilTag' target='_blank'>groma.jp/AprilTag</a> fo
 # For Developer
 
 ## Build Environment
-XCode 9.4.1, macOS High Sierra 10.13.5
+XCode 10.2.1, macOS Mojave 10.14.4
 
 ## Confirmed Devices and OSes
+(surveyed on June 2019.)
+This App only supports iOS 11.0+.  
+Note: if you are using iPhone 5s or earlier model, you can't get intrinsic param.
+3D Position and Orientation will not be correct.
 
 |device model|iOS version|
 |-|-|
-|iPhone 5s|iOS 11.4.1|
-|iPhone 6s|iOS 10.0.2|
-|iPhone 7|iOS 12.0|
-|iPhone 8|iOS 11.4.1|
-|iPad Pro (12.9-inch)|iOS 11.4.1|
+|iPhone SE|12.3.1|
+|iPhone 6|12.3.1|
+|iPhone 6s Plus|12.0.1|
+|iPhone 7|12.0|
+|iPhone 8|11.0.3|
+|iPad 5|12.1.4|
+|iPad Pro (12.9-inch)|11.4.1|
+
 
 ## How to Install
 ### clone from our repository
@@ -24,10 +31,19 @@ XCode 9.4.1, macOS High Sierra 10.13.5
 $ git clone https://github.com/AplixCorporation/groma-AprilTag.git
 ```
 ### install ViSP framework
-1. [download "ViSP for iOS"](https://visp.inria.fr/download/) (current latest version is 3.2.0, please do not use latest version.)
+1. [download "ViSP for iOS"](https://visp.inria.fr/download/) (current latest version is 3.2.0, please do not use `Daily updated snapshots`.)
 2. install the framework to Xcode  
-see [Tutorial: How to create a basic iOS application that uses ViSP](http://visp-doc.inria.fr/doxygen/visp-daily/tutorial-getting-started-iOS.html)  
+see [Tutorial: How to create a basic iOS application that uses ViSP](http://visp-doc.inria.fr/doxygen/visp-daily/tutorial-getting-started-iOS.html)
 
+If you have some trouble in installing the framework, please delete the framework cache on the sbelow settings.  
+Then re-install the framework.
+- General -- Linked Frameworks and Libraries
+- Build Setting -- Framework Search Path
+- Build Phases -- Link Binary with Libraries
+- Project navigator
+
+### open Xcode
+Finally, open DetectAprilTag.xcworkspace (not DetectAprilTag.xcodeproj).
 
 # Information
 ## Copyright notice and license statement
