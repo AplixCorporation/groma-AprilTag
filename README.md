@@ -36,7 +36,7 @@ $ git clone https://github.com/AplixCorporation/groma-AprilTag.git
 see [Tutorial: How to create a basic iOS application that uses ViSP](http://visp-doc.inria.fr/doxygen/visp-daily/tutorial-getting-started-iOS.html)
 
 If you have some trouble in installing the framework, please delete the framework cache on the sbelow settings.  
-Then re-install the framework.
+Then re-install(drag & drop) the framework to root folder.
 - General -- Linked Frameworks and Libraries
 - Build Setting -- Framework Search Path
 - Build Phases -- Link Binary with Libraries

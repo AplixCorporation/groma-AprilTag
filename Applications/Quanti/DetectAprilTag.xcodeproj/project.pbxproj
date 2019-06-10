@@ -24,8 +24,8 @@
 		04D9DA7121130AB800C9B38E /* ImageConversion.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04D9DA6F21130AB700C9B38E /* ImageConversion.mm */; };
 		04D9DA7221130AB800C9B38E /* ImageDisplay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04D9DA7021130AB800C9B38E /* ImageDisplay.mm */; };
 		04D9DA7621130AD200C9B38E /* VispDetector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04D9DA7421130AD200C9B38E /* VispDetector.mm */; };
-		3082A785215A1C0700A58B99 /* visp3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3082A783215A1C0700A58B99 /* visp3.framework */; };
-		3082A786215A1C0700A58B99 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3082A784215A1C0700A58B99 /* opencv2.framework */; };
+		303072E822AE284000F019D0 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 303072E622AE283F00F019D0 /* opencv2.framework */; };
+		303072E922AE284000F019D0 /* visp3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 303072E722AE284000F019D0 /* visp3.framework */; };
 		54CBA6440098C058AB3C3505 /* Pods_DetectAprilTag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D29E3233C48A51E9D9FAA50 /* Pods_DetectAprilTag.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
@@ -58,6 +58,8 @@
 		04D9DA7321130AD200C9B38E /* VispDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VispDetector.h; sourceTree = "<group>"; };
 		04D9DA7421130AD200C9B38E /* VispDetector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VispDetector.mm; sourceTree = "<group>"; };
 		2D29E3233C48A51E9D9FAA50 /* Pods_DetectAprilTag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DetectAprilTag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		303072E622AE283F00F019D0 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		303072E722AE284000F019D0 /* visp3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = visp3.framework; sourceTree = "<group>"; };
 		3082A783215A1C0700A58B99 /* visp3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = visp3.framework; path = "../../../../../Library/visp/visp-3.1.0.framework/visp3.framework"; sourceTree = "<group>"; };
 		3082A784215A1C0700A58B99 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = "../../../../../Library/visp/visp-3.1.0.framework/opencv2.framework"; sourceTree = "<group>"; };
 		426F683F726F82C643EFE3F3 /* Pods-DetectAprilTag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DetectAprilTag.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DetectAprilTag/Pods-DetectAprilTag.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,8 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3082A785215A1C0700A58B99 /* visp3.framework in Frameworks */,
-				3082A786215A1C0700A58B99 /* opencv2.framework in Frameworks */,
+				303072E822AE284000F019D0 /* opencv2.framework in Frameworks */,
+				303072E922AE284000F019D0 /* visp3.framework in Frameworks */,
 				54CBA6440098C058AB3C3505 /* Pods_DetectAprilTag.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,6 +107,8 @@
 		04ABE8592112A50F0040AE4C = {
 			isa = PBXGroup;
 			children = (
+				303072E622AE283F00F019D0 /* opencv2.framework */,
+				303072E722AE284000F019D0 /* visp3.framework */,
 				0446670D211945BA00CBE96F /* Settings.bundle */,
 				04ABE8642112A5100040AE4C /* DetectAprilTag */,
 				0481771B21130A8F00D3DB16 /* Helper */,
@@ -452,8 +456,7 @@
 				DEVELOPMENT_TEAM = Z7689KDQMR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Visp3Framework",
-					"$(USER_LIBRARY_DIR)/visp/visp-3.1.0.framework",
+					"$(PROJECT_DIR)",
 				);
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = DetectAprilTag/Info.plist;
@@ -484,8 +487,7 @@
 				DEVELOPMENT_TEAM = Z7689KDQMR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Visp3Framework",
-					"$(USER_LIBRARY_DIR)/visp/visp-3.1.0.framework",
+					"$(PROJECT_DIR)",
 				);
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = DetectAprilTag/Info.plist;
