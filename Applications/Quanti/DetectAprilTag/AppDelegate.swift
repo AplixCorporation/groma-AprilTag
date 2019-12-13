@@ -27,6 +27,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // デフォルトの設定
+        UserDefaults.standard.register(defaults: [
+            "ShouldDisplayModal":true]
+        )
+        
+        if UserDefaults.standard.bool(forKey: "ShouldDisplayModal"){
+            
+            // 初回起動時
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            let storyboard = UIStoryboard(name: "FirstModal", bundle: nil)
+            self.window?.rootViewController = storyboard.instantiateInitialViewController()
+            self.window?.makeKeyAndVisible()
+        }
+        
         return true
     }
 

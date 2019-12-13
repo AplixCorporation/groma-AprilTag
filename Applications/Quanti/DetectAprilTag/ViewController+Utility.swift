@@ -47,8 +47,13 @@ extension ViewController {
         self.searchBarField.inputAccessoryView = toolbar
         
         // 検索バーの背景を透明に
-        let searchBgImg = self.searchBarField.value(forKey: "_background") as! UIImageView
-        searchBgImg.removeFromSuperview()
+        if #available(iOS 13.0, *) {
+            self.searchBarField.searchBarStyle = .minimal
+            self.searchBarField.searchTextField.backgroundColor = UIColor.white.withAlphaComponent(0.9)
+        } else {
+            let searchBgImg = self.searchBarField.value(forKey: "_background") as! UIImageView
+            searchBgImg.removeFromSuperview()
+        }
         
         self.searchBarField.placeholder = "SearchField".local
     }

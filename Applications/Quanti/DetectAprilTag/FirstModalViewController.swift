@@ -26,15 +26,22 @@ class FirstModalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        modalTextField.backgroundColor = UIColor.white
         modalTextField.text = "Description".local
+        modalTextField.textColor = UIColor.black
+        
+        // 次回から起動しないように設定
+        UserDefaults.standard.set(false, forKey: "ShouldDisplayModal")
     }
 
     // OKボタンが押されたらViewControllerに移動
     @IBAction func goToMain(_ sender: Any) {
         
-        let storyboard: UIStoryboard = self.storyboard!
-        let nextView = storyboard.instantiateViewController(withIdentifier: "NavigationStart")
-        present(nextView, animated: true, completion: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextVC = storyboard.instantiateViewController(withIdentifier: "NavigationStart") as! UINavigationController
+        nextVC.modalPresentationStyle = .fullScreen
+        nextVC.modalTransitionStyle = .crossDissolve
+        self.present(nextVC, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
